@@ -8,7 +8,7 @@ The main goal of the implementations here isn't just to solve problems, but to b
 
 Here is the index of the topics and algorithms studied so far:
 
-### 1. [BFS_Graph](./BFS_Graph)
+### 1. [Shortest_Path_Graph](./Shotest_Path_Graph)
 * **Concepts:** Undirected Graphs, Adjacency Lists, Breadth-First Search (BFS).
 * **Description:** Implementation of a routing system that finds the shortest path between two nodes in a network. The graph topology is loaded from a text file, and the algorithm calculates the route with the fewest jumps using backtracking.
 
