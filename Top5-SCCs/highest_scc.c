@@ -164,6 +164,8 @@ int main() {
   printf("Graph loaded successfully\n");
 
   find_SCCs(map, map_rev);
+
+  printf("\n");
   
   return 0;
 }
