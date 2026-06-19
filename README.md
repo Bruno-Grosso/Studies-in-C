@@ -20,7 +20,8 @@ Here is the index of the topics and algorithms studied so far:
 * **Concepts:** Weighted Directed Graphs, Adjacency Lists, Dijkstra's Algorithm, Data Ingestion/Parsing.
 * **Description:** Implementation of a greedy routing engine that calculates the absolute shortest path from a single source to multiple target nodes in a network. The graph is built from a heavily formatted text dataset, utilizing low-level string tokenization for I/O efficiency, and processes edge relaxations to guarantee the mathematically cheapest routes.
 
----
+
+------------
 
 ## 🛠️ Technologies and Concepts
 * **Language:** C
