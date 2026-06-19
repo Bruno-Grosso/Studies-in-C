@@ -12,6 +12,14 @@ Here is the index of the topics and algorithms studied so far:
 * **Concepts:** Undirected Graphs, Adjacency Lists, Breadth-First Search (BFS).
 * **Description:** Implementation of a routing system that finds the shortest path between two nodes in a network. The graph topology is loaded from a text file, and the algorithm calculates the route with the fewest jumps using backtracking.
 
+### 2. [Top 5 Strongly Connected Components (SCCs)](./Top5-SCCs)
+* **Concepts:** Directed Graphs, Depth-First Search (DFS), Kosaraju's Algorithm, Graph Transposition.
+* **Description:** Implementation of a two-pass algorithm to detect isolated connectivity "bubbles" within a massive directed graph. The system computes vertex finishing times through recursion, transposes the network edges, and executes a targeted DFS to discover, group, and rank the sizes of the five largest Strongly Connected Components.
+
+## 3. [Minimum Cost Routing (Dijkstra)](./Dijkstra_Path)
+* **Concepts:** Weighted Directed Graphs, Adjacency Lists, Dijkstra's Algorithm, Data Ingestion/Parsing.
+* **Description:** Implementation of a greedy routing engine that calculates the absolute shortest path from a single source to multiple target nodes in a network. The graph is built from a heavily formatted text dataset, utilizing low-level string tokenization for I/O efficiency, and processes edge relaxations to guarantee the mathematically cheapest routes.
+
 ---
 
 ## 🛠️ Technologies and Concepts
