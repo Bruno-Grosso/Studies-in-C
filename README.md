@@ -18,7 +18,7 @@ Here is the index of the topics and algorithms studied so far:
 * **Description:** Implementation of a two-pass algorithm to detect isolated connectivity "bubbles" within a massive directed graph. The system computes vertex finishing times through recursion, transposes the network edges, and executes a targeted DFS to discover, group, and rank the sizes of the five largest Strongly Connected Components.
 
 
-## 3. [Minimum Cost Routing (Dijkstra)](./Dijkstra_Path)
+### 3. [Minimum Cost Routing (Dijkstra)](./Dijkstra_Path)
 * **Concepts:** Weighted Directed Graphs, Adjacency Lists, Dijkstra's Algorithm, Data Ingestion/Parsing.
 * **Description:** Implementation of a greedy routing engine that calculates the absolute shortest path from a single source to multiple target nodes in a network. The graph is built from a heavily formatted text dataset, utilizing low-level string tokenization for I/O efficiency, and processes edge relaxations to guarantee the mathematically cheapest routes.
 
