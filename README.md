@@ -22,6 +22,9 @@ Here is the index of the topics and algorithms studied so far:
 * **Concepts:** Weighted Directed Graphs, Adjacency Lists, Dijkstra's Algorithm, Data Ingestion/Parsing.
 * **Description:** Implementation of a greedy routing engine that calculates the absolute shortest path from a single source to multiple target nodes in a network. The graph is built from a heavily formatted text dataset, utilizing low-level string tokenization for I/O efficiency, and processes edge relaxations to guarantee the mathematically cheapest routes.
 
+### 4. [Median Maintenance](./Median_Maintenance)
+* **Concepts:** Heaps (Max-Heap & Min-Heap), Priority Queues, Online Algorithms, Data Streaming.
+* **Description:**  A streaming engine that calculates the running median of a massive dataset. It uses a dual-heap architecture to maintain two balanced halves of the data, ensuring median extraction in $\mathcal{O}(1)$ and insertion in $\mathcal{O}(\log N)$, without the need to re-sort the entire set.
 
 ------------
 
