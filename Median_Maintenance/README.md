@@ -3,6 +3,7 @@
 This project contains the implementation of a real-time statistical analysis engine in pure C. The goal is to calculate the running median of a massive data stream using a dual-heap architecture.
 
 The base of this project was developed to solve the median maintenance challenge from the **Stanford University** Algorithms specialization (via Coursera), processing a dataset of 10,000 integers while maintaining $\mathcal{O}(\log N)$ insertion efficiency.
+---
 
 ### ⚠️ About the Data File ( `Median.txt` )
 
