@@ -26,6 +26,10 @@ Here is the index of the topics and algorithms studied so far:
 * **Concepts:** Heaps (Max-Heap & Min-Heap), Priority Queues, Online Algorithms, Data Streaming.
 * **Description:**  A streaming engine that calculates the running median of a massive dataset. It uses a dual-heap architecture to maintain two balanced halves of the data, ensuring median extraction in $\mathcal{O}(1)$ and insertion in $\mathcal{O}(\log N)$, without the need to re-sort the entire set.
 
+### 5. [Dynamic Hash Table](./Dynamic_Hash_Table)
+* **Concepts:** Universal Hashing, Open Addressing (Double Probing), Tombstone Deletion, Dynamic Resizing.
+* **Description:** A highly resilient hash table engine that autonomously manages memory scaling based on load factors. It implements Universal Hashing and Double Probing to prevent clustering, and utilizes a Tombstone mechanism to safely handle logical deletions. This architecture ensures $\mathcal{O}(1)$ amortized time complexity for insertions, deletions, and lookups, even under continuous data flow.
+
 ------------
 
 ## 🛠️ Technologies and Concepts
