@@ -30,6 +30,11 @@ Here is the index of the topics and algorithms studied so far:
 * **Concepts:** Universal Hashing, Open Addressing (Double Probing), Tombstone Deletion, Dynamic Resizing.
 * **Description:** A highly resilient hash table engine that autonomously manages memory scaling based on load factors. It implements Universal Hashing and Double Probing to prevent clustering, and utilizes a Tombstone mechanism to safely handle logical deletions. This architecture ensures $\mathcal{O}(1)$ amortized time complexity for insertions, deletions, and lookups, even under continuous data flow.
 
+### 6. [Mass-Scale 2-SUM Search](./2_Sum_Problem)
+
+* **Concepts:** Hash Tables, Open Addressing (Double Hashing), Universal Hashing, Time-Space Tradeoffs, Big Data Processing.
+* **Description:** Implementation of an optimized search engine designed to solve the classic 2-SUM problem across a massive dataset of one million integers. It leverages a custom-built hash table featuring Universal Hashing and Double Probing to guarantee uniform data distribution and mitigate clustering. By calculating algebraic complements and executing $O(1)$ lookups, the architecture entirely bypasses $O(N^2)$ brute-force limitations, efficiently processing tens of billions of potential combinations to find valid target sums.
+
 ------------
 
 ## 🛠️ Technologies and Concepts
