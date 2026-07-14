@@ -3,13 +3,11 @@
 #include <time.h>
 
 #define CAPACITY 2000003
-#define EMPTY -99999999LL
+// Using the smallest possible 64-bit value to avoid conflicts with real dataset numbers
+#define EMPTY -999999999999999LL 
 
 typedef struct Hash {
     long long* buckets;
-    int a;
-    int b;
-    int p;
 } Hash;
 
 Hash* create_hash() {
@@ -20,33 +18,24 @@ Hash* create_hash() {
         table->buckets[i] = EMPTY;
     }
     
-    // Universal hashing random coefficients and a large prime number
-    table->a = rand();
-    table->b = rand();
-    table->p = 10485767;
-    
     return table;
 }
 
-long long hash_function(Hash* table, long long key) {
-    int a = table->a, b = table->b, p = table->p;
-    
-    // Universal hashing formula
-    long long index = ((a * (llabs(key) % p) + b) % p) % CAPACITY;
-    
-    return index;
+// Direct and optimized hashing using the prime capacity
+long long hash_function(long long key) {
+    return llabs(key) % CAPACITY;
 }
 
 Hash* insert_hash(Hash* table, long long key) {
-    long long index = hash_function(table, key);
+    long long index = hash_function(key);
     
     if (table->buckets[index] == EMPTY) {
         table->buckets[index] = key;    
         return table;
     }
     
-    // Double hashing: calculating the step size for the probe sequence
-    long long step_size = 1 + (llabs(key) % (CAPACITY - 1));
+    // Double hashing: using (CAPACITY - 2) to ensure coprime step sizes
+    long long step_size = 1 + (llabs(key) % (CAPACITY - 2));
     
     // Probe until an empty bucket or the same key is found
     while (table->buckets[index] != EMPTY && table->buckets[index] != key) {
@@ -59,14 +48,14 @@ Hash* insert_hash(Hash* table, long long key) {
 }
 
 int search(Hash* table, long long target_val) {
-    long long index = hash_function(table, target_val);
+    long long index = hash_function(target_val);
     
     if (table->buckets[index] == target_val) {
         return 1;
     }
     
     long long temp_index = index;
-    long long step_size = 1 + (llabs(target_val) % (CAPACITY - 1));
+    long long step_size = 1 + (llabs(target_val) % (CAPACITY - 2));
     
     while (table->buckets[temp_index] != target_val) {
         if (table->buckets[temp_index] == EMPTY) {
@@ -84,48 +73,65 @@ int search(Hash* table, long long target_val) {
 }
 
 int main() {
-    freopen("prob-2sum.txt", "r", stdin);
-    srand(time(NULL));
-    
-    Hash* table = create_hash();
-    long long key;
-    
-    // Load the 1,000,000 integers into the hash table
-    for (int i = 0; i < 1000000; i++) {
-        scanf("%lld", &key);
-        table = insert_hash(table, key);
+    // 1. Safe File Reading
+    FILE* file = fopen("prob-2sum.txt", "r");
+    if (!file) {
+        printf("CRITICAL ERROR: 'prob-2sum.txt' not found!\n");
+        return 1;
     }
+
+    Hash* table = create_hash();
+    
+    // 2. Auxiliary Array for Search Optimization
+    long long* inputs = (long long*)malloc(1000000 * sizeof(long long));
+    int total_numbers = 0;
+    long long key;
+
+    printf("Loading integers into the Hash Table...\n");
+    
+    // fscanf returns 1 only if it successfully reads an integer
+    while (fscanf(file, "%lld", &key) == 1 && total_numbers < 1000000) {
+        table = insert_hash(table, key);
+        inputs[total_numbers++] = key; 
+    }
+    fclose(file);
+
+    printf("Data loaded. Total entries: %d\n", total_numbers);
+    printf("Starting 2-SUM processing...\n");
     
     int current_target = -10000;
     int valid_targets = 0;
     long long y, x;
-    
+
     // Check for each target sum in the range [-10000, 10000]
     while (current_target <= 10000) {
         
-        for (int k = 0; k < CAPACITY; k++) {
-            x = table->buckets[k];
+        // Progress tracker to monitor the processing speed
+        if (current_target % 100 == 0) {
+            printf("Checking targets... Current: %d\n", current_target);
+        }
+
+        // Loop only through the actual numbers present in the file
+        for (int k = 0; k < total_numbers; k++) {
+            x = inputs[k];
+            y = current_target - x;
             
-            if (x != EMPTY) {
-                y = current_target - x;
-                int is_found = search(table, y);
-                
-                // x and y must be distinct values
-                if (is_found == 1 && x != y) {
-                    valid_targets++;
-                    break; // Move to the next target sum once a valid pair is found
-                }
+            // Search for the complement in the Hash Table
+            if (x != y && search(table, y) == 1) {
+                valid_targets++;
+                break; // Move to the next target sum once a valid pair is found
             }
         }
         
         current_target++;
     }
-    
-    printf("%d\n", valid_targets);
-    
-    // Free allocated memory to prevent memory leaks
+
+    printf("\nFINAL RESULT: %d\n", valid_targets);
+
+    // Free dynamically allocated memory
+    free(inputs);
     free(table->buckets);
     free(table);
-    
+
     return 0;
 }
