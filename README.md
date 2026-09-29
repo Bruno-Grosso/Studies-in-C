@@ -35,7 +35,7 @@ Here is the index of the topics and algorithms studied so far:
 * **Concepts:** Hash Tables, Open Addressing (Double Hashing), Universal Hashing, Time-Space Tradeoffs, Big Data Processing.
 * **Description:** Implementation of an optimized search engine designed to solve the classic 2-SUM problem across a massive dataset of one million integers. It leverages a custom-built hash table featuring Universal Hashing and Double Probing to guarantee uniform data distribution and mitigate clustering. By calculating algebraic complements and executing $O(1)$ lookups, the architecture entirely bypasses $O(N^2)$ brute-force limitations, efficiently processing tens of billions of potential combinations to find valid target sums.
 
-## 7. [High-Performance Minimum Spanning Tree](./Prim_MST)**
+### 7. [High-Performance Minimum Spanning Tree](./Prim_MST)
 
 * **Concepts:** Heaps (Min-Heap with Index Tracking), Priority Queues, Graph Theory, Greedy Algorithms (Prim's).
 * **Description:** Implementation of an optimized routing engine designed to compute the exact Minimum Spanning Tree (MST) of complex network graphs. It integrates a custom-built Min-Heap architecture equipped with a real-time vertex positioning array to execute constant-time $O(1)$ decrease-key operations. This robust structural upgrade effectively bypasses standard $O(V^2)$ search bottlenecks, achieving an optimal $O(m \log n)$ time complexity to efficiently process large-scale, sparse data networks.
