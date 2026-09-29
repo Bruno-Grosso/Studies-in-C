@@ -54,16 +54,16 @@ MinHeapNode* create_heap_node(int dest, int weight){
 
 Graph* create_graph(int V){
 
-  Graph* graph = (Graph*)malloc(sizeof(Graph)); 
+	Graph* graph = (Graph*)malloc(sizeof(Graph)); 
 
-  graph->num_vertex = V;
-  graph->vertex = (Node**)malloc(V * sizeof(Node*));
+  	graph->num_vertex = V;
+  	graph->vertex = (Node**)malloc(V * sizeof(Node*));
     
-  for(int i=0; i<V; i++){
-    graph->vertex[i] = NULL;
-  }
+  	for(int i=0; i<V; i++){
+    	graph->vertex[i] = NULL;
+  	}
 
-  return graph;
+	return graph;
 }
 
 Node* create_node(int dest, int weight){
@@ -79,37 +79,37 @@ Node* create_node(int dest, int weight){
 
 void add_edge(Graph* graph, int src, int dest, int weight){
     
-  Node* new_node = create_node(dest, weight);
+  	Node* new_node = create_node(dest, weight);
 	new_node->next = graph->vertex[src];
-  graph->vertex[src] = new_node;
+  	graph->vertex[src] = new_node;
     
-  new_node = create_node(src, weight);
-  new_node->next = graph->vertex[dest];
-  graph->vertex[dest] = new_node;
+  	new_node = create_node(src, weight);
+  	new_node->next = graph->vertex[dest];
+  	graph->vertex[dest] = new_node;
 }
 
 
 Graph* load_graph_from_file(const char* filename) {
-  FILE* file = fopen(filename, "r");
-  if (file == NULL) {
-    printf("Error: Could not open the file %s!\n", filename);
-    exit(1);
-  }
+  	FILE* file = fopen(filename, "r");
+  	if (file == NULL) {
+    	printf("Error: Could not open the file %s!\n", filename);
+    	exit(1);
+  	}
 
-  int V, E;
-  fscanf(file, "%d %d", &V, &E);
+  	int V, E;
+  	fscanf(file, "%d %d", &V, &E);
 
-  Graph* graph = create_graph(V);
+  	Graph* graph = create_graph(V);
 
-  int u, v, weight;
+  	int u, v, weight;
 
-  for (int i = 0; i < E; i++) {
-    fscanf(file, "%d %d %d", &u, &v, &weight);
-    add_edge(graph, u - 1, v - 1, weight);
-  }
+  	for (int i = 0; i < E; i++) {
+    	fscanf(file, "%d %d %d", &u, &v, &weight);
+    	add_edge(graph, u - 1, v - 1, weight);
+  	}
 
-  fclose(file);
-  return graph;
+  	fclose(file);
+  	return graph;
 }
 
 void swap_nodes(MinHeap* heap, int idx_a, int idx_b){
