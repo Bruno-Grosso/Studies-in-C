@@ -40,6 +40,11 @@ Here is the index of the topics and algorithms studied so far:
 * **Concepts:** Heaps (Min-Heap with Index Tracking), Priority Queues, Graph Theory, Greedy Algorithms (Prim's).
 * **Description:** Implementation of an optimized routing engine designed to compute the exact Minimum Spanning Tree (MST) of complex network graphs. It integrates a custom-built Min-Heap architecture equipped with a real-time vertex positioning array to execute constant-time $O(1)$ decrease-key operations. This robust structural upgrade effectively bypasses standard $O(V^2)$ search bottlenecks, achieving an optimal $O(m \log n)$ time complexity to efficiently process large-scale, sparse data networks.
 
+### 8. [Optimal Prefix-Free Compression (Huffman)](./Huffman_Cost)
+
+* **Concepts:** Greedy Algorithms, Binary Trees, Contiguous Memory Allocation, Data Compression, Integer Overflow Management.
+* **Description:** Implementation of a highly optimized greedy compression engine designed to construct an exact Huffman tree for large-scale datasets. Instead of relying on fragmented dynamic memory, the architecture models the entire tree structure within a single, contiguous array of $2N-1$ nodes. It utilizes a custom bottom-up traversal mechanism via parent pointers to bypass traditional recursion overhead, and is strictly fortified with 64-bit precision to prevent integer overflow when processing massive symbol frequencies. The system efficiently fuses nodes to calculate the absolute maximum and minimum encoding depths of the optimal prefix-free code.
+
 ------------
 
 ## 🛠️ Technologies and Concepts
