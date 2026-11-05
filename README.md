@@ -45,6 +45,10 @@ Here is the index of the topics and algorithms studied so far:
 * **Concepts:** Greedy Algorithms, Binary Trees, Contiguous Memory Allocation, Data Compression, Integer Overflow Management.
 * **Description:** Implementation of a highly optimized greedy compression engine designed to construct an exact Huffman tree for large-scale datasets. Instead of relying on fragmented dynamic memory, the architecture models the entire tree structure within a single, contiguous array of $2N-1$ nodes. It utilizes a custom bottom-up traversal mechanism via parent pointers to bypass traditional recursion overhead, and is strictly fortified with 64-bit precision to prevent integer overflow when processing massive symbol frequencies. The system efficiently fuses nodes to calculate the absolute maximum and minimum encoding depths of the optimal prefix-free code.
 
+### 9. [Massive 0/1 Knapsack (Rolling Arrays)](./Massive_Knapsack)
+- **Concepts:** Dynamic Programming, Space Optimization (Rolling Arrays), Parity Indexing, Heap Memory Management, 64-bit Integer Precision, Stream I/O Redirection.
+- **Description:** Implementation of a memory-optimized Dynamic Programming engine built to solve the 0/1 Knapsack problem on a massive scale ($N = 2,000$ and $W = 2,000,000$). To bypass the prohibitive ~32 GB RAM requirement of a standard 2D DP table, the architecture implements a dual-buffer rolling array technique that alternates read/write states using parity indexing (`current_item % 2`). This compresses space complexity from $\mathcal{O}(N \times W)$ to $\mathcal{O}(W)$, slashing memory consumption down to ~32 MB. The system is strictly fortified with 64-bit integer types to prevent overflow during profit aggregations and uses low-level stream redirection for zero-overhead data ingestion.
+
 ------------
 
 ## 🛠️ Technologies and Concepts
